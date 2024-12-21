@@ -1,0 +1,156 @@
+/* Fondo del Modal */
+.modal {
+  background-color: rgba(0, 0, 0, 0.9); /* Más oscuro para el fondo */
+  backdrop-filter: blur(8px); /* Efecto de desenfoque */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1100;
+}
+
+/* Contenido del Modal */
+.modal-content {
+  background: linear-gradient(145deg, #1a1a1a, #111);
+  border: 3px solid crimson;
+  border-radius: 10px;
+  color: #e0e0e0;
+  box-shadow: 0 0 15px rgba(255, 0, 0, 0.8), 0 0 50px rgba(0, 0, 0, 1);
+  padding: 20px;
+  position: relative;
+  width: 90%;
+  max-width: 500px;
+}
+
+/* Título del Modal */
+.modal-content h2 {
+  color: crimson;
+  text-align: center;
+  font-size: 2rem;
+  letter-spacing: 2px;
+  text-shadow: 0px 4px 10px rgba(0, 0, 0, 0.7), 0px 0px 10px crimson;
+  margin-bottom: 20px;
+}
+
+/* Campos de entrada */
+.modal-content input,
+.modal-content select,
+.modal-content textarea {
+  width: 100%;
+  background-color: #222;
+  border: 2px solid crimson;
+  color: white;
+  padding: 10px;
+  margin-bottom: 15px;
+  border-radius: 5px;
+  transition: background-color 0.3s, border-color 0.3s;
+}
+
+.modal-content input:focus,
+.modal-content select:focus,
+.modal-content textarea:focus {
+  background-color: #111;
+  border-color: #ff0000;
+  outline: none;
+  box-shadow: 0 0 10px crimson;
+}
+
+/* Placeholder */
+.modal-content input::placeholder,
+.modal-content textarea::placeholder {
+  color: #888;
+}
+
+/* Botones generales */
+.modal-content button {
+  width: 100%;
+  padding: 10px;
+  font-size: 1rem;
+  font-weight: bold;
+  letter-spacing: 1px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: transform 0.3s, background-color 0.3s;
+}
+
+.modal-content button[type="submit"] {
+  background-color: crimson;
+  color: white;
+  box-shadow: 0 0 10px rgba(255, 0, 0, 0.7);
+}
+
+.modal-content button[type="submit"]:hover {
+  transform: scale(1.05);
+  background-color: darkred;
+  box-shadow: 0 0 15px rgba(255, 0, 0, 0.9);
+}
+
+/* Cerrar Modal */
+.modal-close {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  color: crimson;
+  font-size: 2rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: transform 0.3s, color 0.3s;
+}
+
+.modal-close:hover {
+  transform: scale(1.2);
+  color: white;
+}
+
+/* Contenedor para alinear input y botón */
+/* Contenedor para alinear input y botón */
+/* Contenedor para el input y botón */
+.name-generator-container {
+  display: flex;
+  flex-direction: column; /* Cambia la disposición a columna */
+  align-items: stretch; /* Asegura que ambos elementos ocupen todo el ancho */
+  margin-bottom: 15px; /* Espaciado inferior */
+}
+
+/* Input del nombre */
+.name-generator-input {
+  padding: 10px;
+  border: 2px solid crimson;
+  border-radius: 5px;
+  background-color: #1e1e1e;
+  color: white;
+  font-size: 1rem;
+  outline: none;
+  transition: border-color 0.3s ease;
+  margin-bottom: 10px; /* Espaciado entre input y botón */
+}
+
+.name-generator-input::placeholder {
+  color: #999;
+}
+
+.name-generator-input:focus {
+  border-color: crimson;
+}
+
+/* Botón de generación */
+.name-generator-button {
+  padding: 10px 15px;
+  font-size: 1rem;
+  border: 2px solid crimson;
+  border-radius: 5px;
+  background-color: crimson;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.name-generator-button:hover {
+  background-color: #a30000;
+  transform: scale(1.05); /* Efecto al pasar el mouse */
+}
+
+.name-generator-button:active {
+  transform: scale(0.95); /* Efecto al hacer clic */
+}
