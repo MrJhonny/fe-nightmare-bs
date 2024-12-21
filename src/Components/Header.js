@@ -1,6 +1,7 @@
 import React from 'react';
 import './Header.css';
 import logo from '../img/logo.png';
+import { Link } from 'react-router-dom'; // Importar Link de react-router-dom
 
 const Header = () => {
   return (
@@ -8,12 +9,14 @@ const Header = () => {
       <div className="container d-flex justify-content-between align-items-center">
         {/* Logo */}
         <div className="d-flex align-items-center">
-          <img
-            src={logo}
-            alt="Logo"
-            className="me-2"
-            style={{ height: '50px', filter: 'brightness(0.8)' }}
-          />
+          <Link to="/"> {/* Usar Link para redirigir al inicio */}
+            <img
+              src={logo}
+              alt="Logo"
+              className="me-2"
+              style={{ height: '50px', filter: 'brightness(0.8)', cursor: 'pointer' }}
+            />
+          </Link>
         </div>
 
         {/* Texto centrado */}
@@ -27,25 +30,25 @@ const Header = () => {
         <div style={{ width: '50px' }}></div>
 
         {/* Navegación */}
-        {/* <nav className="d-none d-md-block">
+        <nav className="d-none d-md-block">
           <ul className="nav">
             <li className="nav-item">
-              <a href="/" className="nav-link text-white">Inicio</a>
+              <Link to="/" className="nav-link text-white">Home</Link>
             </li>
             <li className="nav-item">
-              <a href="/categories" className="nav-link text-white">Categorías</a>
+              {/* <Link to="/categories" className="nav-link text-white">Categorías</Link> */}
             </li>
             <li className="nav-item">
-              <a href="/stories" className="nav-link text-white">Historias</a>
+              <Link to="/stories" className="nav-link text-white">Stories</Link>
             </li>
             <li className="nav-item">
-              <a href="/contact" className="nav-link text-white">Contacto</a>
+              {/* <Link to="/contact" className="nav-link text-white">Contacto</Link> */}
             </li>
           </ul>
-        </nav> */}
+        </nav>
 
         {/* Menú desplegable para pantallas pequeñas */}
-        {/* <div className="dropdown d-md-none">
+        <div className="dropdown d-md-none">
           <button
             className="btn btn-dark dropdown-toggle text-white"
             type="button"
@@ -53,23 +56,23 @@ const Header = () => {
             data-bs-toggle="dropdown"
             aria-expanded="false"
           >
-            Menú
+            
           </button>
           <ul className="dropdown-menu dropdown-menu-dark" aria-labelledby="dropdownMenuButton">
             <li>
-              <a className="dropdown-item" href="/">Inicio</a>
+              <Link className="dropdown-item" to="/">Home</Link>
             </li>
             <li>
-              <a className="dropdown-item" href="/categories">Categorías</a>
+              {/* <Link className="dropdown-item" to="/categories">Categorías</Link> */}
             </li>
             <li>
-              <a className="dropdown-item" href="/stories">Historias</a>
+              <Link className="dropdown-item" to="/stories">Stories</Link>
             </li>
             <li>
-              <a className="dropdown-item" href="/contact">Contacto</a>
+              {/* <Link className="dropdown-item" to="/contact">Contacto</Link> */}
             </li>
           </ul>
-        </div> */}
+        </div>
       </div>
     </header>
   );
