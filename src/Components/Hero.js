@@ -24,7 +24,7 @@ const Hero = ({ onOpenModal }) => {
   const handleScrollToCategories = () => {
     const categoriesSection = document.getElementById('categories-section');
     if (categoriesSection) {
-      const offset = -20; // Ajuste en píxeles
+      const offset = -35; // Ajuste en píxeles
       const elementPosition = categoriesSection.getBoundingClientRect().top;
       const offsetPosition = elementPosition + window.pageYOffset + offset;
 

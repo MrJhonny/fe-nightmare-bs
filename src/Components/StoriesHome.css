@@ -1,15 +1,21 @@
 /* Sección de historias */
 .stories-section {
-  padding: 40px 20px;
+  position: relative; /* Posiciona el contenedor de manera relativa */
+  padding: 20px 15px;
   background-color: #111;
+  z-index: 0; /* Por defecto, debajo del btn-float */
 }
 
+/* Grid de historias */
 .stories-grid {
   display: grid;
-  grid-template-columns: repeat(6, 1fr); /* 8 columnas por defecto */
+  grid-template-columns: repeat(6, 1fr); /* 6 columnas por defecto */
   gap: 20px;
+  position: relative; /* Necesario para posicionar elementos superpuestos */
+  z-index: 1; /* Las historias deben estar debajo del btn-float */
 }
 
+/* Tarjetas de historias */
 .story-card {
   color: white;
   background-color: #222;
@@ -22,9 +28,9 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  overflow: hidden; /* Oculta el contenido que exceda */
+  overflow: hidden; /* Oculta contenido extra */
+  z-index: 1; /* Por encima de las historias con blur */
 }
-
 
 .story-card h3 {
   font-size: 1.5rem;
@@ -51,13 +57,88 @@
 @media (max-width: 768px) {
   .stories-grid {
     grid-template-columns: repeat(2, 1fr); /* 2 columnas en móviles */
-    height: 300px; 
   }
 }
 
 @media (min-width: 769px) and (max-width: 1200px) {
   .stories-grid {
-    grid-template-columns: repeat(4, 1fr); /* 4 columnas en tablets */
-    height: 280px
+    grid-template-columns: repeat(3, 1fr); /* 3 columnas en tablets */
+  }
+}
+
+/* Historias con desenfoque */
+.blurred-story {
+  filter: blur(4px);
+  opacity: 0.8;
+  transform: translateY(5px);
+  transition: filter 0.5s, opacity 0.5s;
+  user-select: none; /* Evita que el texto sea seleccionable */
+  pointer-events: none; /* Opcional: evita interacción con elementos dentro */
+  z-index: 0; /* Debajo de las historias y el btn-float */
+}
+
+.blurred-story:hover {
+  filter: blur(4px);
+  opacity: 0.8;
+}
+
+/* Contenedor del botón "View More" */
+.view-more-container {
+  position: absolute; /* Permite posicionar el botón sobre las historias con blur */
+  bottom: -40px; /* Asegura que el botón quede centrado */
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  z-index: 3; /* Aumenta el z-index para que quede encima del blur */
+}
+
+.view-more-button {
+  background-color: crimson;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.3s;
+  z-index: 3; /* Para asegurar que esté encima del blur */
+}
+
+.view-more-button:hover {
+  background-color: darkred;
+  transform: scale(1.05);
+}
+
+/* Botón flotante */
+.btn-float {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 60px;
+  height: 60px;
+  background-color: crimson;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  font-size: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 10px rgba(255, 0, 0, 0.5);
+  cursor: pointer;
+  z-index: 5; /* Asegúrate de que esté encima de todos los demás elementos */
+}
+
+.btn-float:hover {
+  background-color: darkred;
+  transform: scale(1.1);
+}
+
+/* Ajustes adicionales para compatibilidad */
+@media (max-width: 768px) {
+  .view-more-container {
+    bottom: -20px; /* Ajusta el botón más cerca del contenido en pantallas pequeñas */
   }
 }

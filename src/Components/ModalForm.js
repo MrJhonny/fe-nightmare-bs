@@ -116,7 +116,7 @@ const ModalForm = ({ isModalOpen, setIsModalOpen }) => {
         <div>
             {/* Botón para abrir el modal */}
             <button
-                className="btn btn-primary"
+                className="btn btn-danger"
                 onClick={() => setIsModalOpen(true)}
                 style={{
                     position: "fixed",
