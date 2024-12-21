@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import './Hero.css'; // Archivo CSS para personalizaciones
+import './Hero.css';
 import hero1 from "../img/hero/hero1.jpg";
 import hero2 from "../img/hero/hero2.jpg";
 import hero3 from "../img/hero/hero3.jpg";
@@ -24,40 +24,37 @@ const Hero = ({ onOpenModal }) => {
   const handleScrollToCategories = () => {
     const categoriesSection = document.getElementById('categories-section');
     if (categoriesSection) {
-      const offset = -20; // Ajuste en píxeles (scroll 20px menos)
+      const offset = -20; // Ajuste en píxeles
       const elementPosition = categoriesSection.getBoundingClientRect().top;
       const offsetPosition = elementPosition + window.pageYOffset + offset;
-  
+
       window.scrollTo({
         top: offsetPosition,
         behavior: 'smooth',
       });
     }
   };
+
   return (
-    <section
-      className="hero-section d-flex align-items-center justify-content-center text-white text-center"
-      style={{
-        backgroundImage: `url(${images[currentImageIndex]})`,
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
-        height: '100vh',
-      }}
-    >
-      <div className="container">
-        <h1 className="display-1 fw-bold">Tell Me Your</h1>
-        <h1 className="display-1 fw-bold">Nightmare</h1>
-        <p className="lead">See your nightmare come to life</p>
-        <div className="d-flex flex-column flex-md-row gap-3 mt-4 justify-content-center">
+    <section className="hero-section">
+      <div
+        className="hero-background"
+        style={{ backgroundImage: `url(${images[currentImageIndex]})` }}
+      ></div>
+      <div className="hero-content">
+        <h1 className="hero-title">Tell Me Your</h1>
+        <h1 className="hero-title">Nightmare</h1>
+        <p className="hero-subtitle">See your nightmare come to life</p>
+        <div className="hero-buttons">
           <button
-            className="btn btn-primary btn-lg"
+            className="hero-btn explore-button"
             onClick={handleScrollToCategories}
           >
             Explore Categories And Stories
           </button>
           <button
-            className="btn btn-secondary btn-lg"
-            onClick={onOpenModal}
+            className="hero-btn submit-button"
+            onClick={onOpenModal} // Abre el modal
           >
             Submit Your Stories
           </button>

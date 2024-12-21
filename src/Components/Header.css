@@ -1,6 +1,6 @@
 /* General Header Styles */
 .custom-header {
-  background-color: #111; /* Sobrescribe el bg-dark */
+  background-color: #080808; /* Color más oscuro que el original (#000000) */
   border-bottom: 2px solid crimson; /* Agrega un borde inferior */
 }
 

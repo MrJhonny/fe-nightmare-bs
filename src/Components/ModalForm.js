@@ -4,8 +4,7 @@ import { generateUsername } from "./GenerateUsername";
 
 const API_BASE_URL = process.env.REACT_APP_API_URL || "http://localhost:3000/api/v1/";
 
-const ModalForm = () => {
-    const [isModalOpen, setIsModalOpen] = useState(false);
+const ModalForm = ({ isModalOpen, setIsModalOpen }) => {
     const [newStory, setNewStory] = useState({
         title: "",
         name: "",
@@ -26,7 +25,6 @@ const ModalForm = () => {
             document.body.style.overflow = "auto"; // Habilita el scroll
         }
 
-        // Limpieza al desmontar
         return () => {
             document.body.style.overflow = "auto";
         };
@@ -68,29 +66,42 @@ const ModalForm = () => {
     // Submit Story
     const handleFormSubmit = async (e) => {
         e.preventDefault();
-
+    
         if (!newStory.title || !newStory.name || !newStory.recurrencia || !newStory.category || !newStory.value) {
             alert("Please fill in all required fields.");
             return;
         }
-
+    
+        // Crear el array con el formato correcto
+        const storyToSubmit = [
+            {
+                title: newStory.title.trim(),
+                name: newStory.name.trim(),
+                recurrencia: newStory.recurrencia,
+                category: newStory.category,
+                value: newStory.value.trim(),
+                mail: newStory.email.trim(),
+            },
+        ];
+    
         try {
             const response = await fetch(`${API_BASE_URL}notes`, {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
-                body: JSON.stringify(newStory),
+                body: JSON.stringify(storyToSubmit), // Enviar el array
             });
-
+    
             if (!response.ok) {
-                throw new Error("Failed to submit story");
+                const errorDetails = await response.json();
+                throw new Error(errorDetails.message || "Failed to submit story");
             }
-
-            alert("Story submitted successfully!");
+    
+            // alert("Story submitted successfully!");
             setIsModalOpen(false);
             setNewStory({ title: "", name: "", recurrencia: "", category: "", value: "", email: "" });
         } catch (error) {
             console.error("Error submitting story:", error);
-            alert("Failed to submit story. Please try again later.");
+            alert(error.message);
         }
     };
 
@@ -140,6 +151,7 @@ const ModalForm = () => {
                 >
                     <div
                         className="modal-content"
+                        onClick={(e) => e.stopPropagation()}
                         style={{
                             backgroundColor: "#1e1e1e",
                             padding: "20px",
@@ -168,9 +180,7 @@ const ModalForm = () => {
                             <p style={{ color: "red" }}>{apiError}</p>
                         ) : (
                             <form onSubmit={handleFormSubmit}>
-                                {/* Name Input */}
                                 <div className="name-generator-container">
-                                    {/* Campo de entrada para el nombre */}
                                     <input
                                         type="text"
                                         name="name"
@@ -180,8 +190,6 @@ const ModalForm = () => {
                                         placeholder="Use your name, nickname, or generate one"
                                         required
                                     />
-
-                                    {/* Botón para generar un nombre */}
                                     <button
                                         type="button"
                                         className="name-generator-button"
@@ -190,8 +198,6 @@ const ModalForm = () => {
                                         Generate Username
                                     </button>
                                 </div>
-
-                                {/* Title Input */}
                                 <input
                                     type="text"
                                     name="title"
@@ -207,8 +213,6 @@ const ModalForm = () => {
                                         borderRadius: "5px",
                                     }}
                                 />
-
-                                {/* Recurrence Select */}
                                 <select
                                     name="recurrencia"
                                     value={newStory.recurrencia}
@@ -228,8 +232,6 @@ const ModalForm = () => {
                                         </option>
                                     ))}
                                 </select>
-
-                                {/* Category Select */}
                                 <select
                                     name="category"
                                     value={newStory.category}
@@ -249,8 +251,6 @@ const ModalForm = () => {
                                         </option>
                                     ))}
                                 </select>
-
-                                {/* Story Textarea */}
                                 <textarea
                                     name="value"
                                     value={newStory.value}
@@ -264,8 +264,6 @@ const ModalForm = () => {
                                         borderRadius: "5px",
                                     }}
                                 ></textarea>
-
-                                {/* Email Input */}
                                 <input
                                     type="email"
                                     name="email"
@@ -280,8 +278,6 @@ const ModalForm = () => {
                                         borderRadius: "5px",
                                     }}
                                 />
-
-                                {/* Submit Button */}
                                 <button
                                     type="submit"
                                     style={{
@@ -295,8 +291,6 @@ const ModalForm = () => {
                                 >
                                     Submit
                                 </button>
-                                {/* Terms and Conditions */}
-
                                 <div
                                     style={{
                                         display: "flex",
@@ -332,7 +326,8 @@ const ModalForm = () => {
                                             terms and conditions
                                         </a>
                                     </label>
-                                </div>                            </form>
+                                </div>
+                            </form>
                         )}
                     </div>
                 </div>

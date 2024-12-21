@@ -1,41 +1,115 @@
 .hero-section {
-  height: 100vh; /* Ocupa todo el viewport */
-  overflow: hidden; /* Evita desbordamientos */
-  margin: 0; /* Elimina márgenes */
-  padding: 0; /* Elimina relleno */
-  background-size: cover; /* Ajusta la imagen de fondo */
-  background-position: center; /* Centra la imagen de fondo */
-  transition: background-image 1.5s ease-in-out; /* Transición suave */
+  position: relative;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: white;
+  overflow: hidden;
 }
 
-.hero-section h1 {
+.hero-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  z-index: 1;
+  transition: background-image 2s ease-in-out;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  padding: 20px;
+}
+
+.hero-title {
+  font-family: 'Cinzel', serif;
+  font-size: 6.5rem; /* Ajusta el tamaño según lo necesario */
   text-transform: uppercase;
+  margin: 0;
+  letter-spacing: 3px;
+  text-align: center;
+  color: white;
   text-shadow: 
-    0px 4px 10px rgba(0, 0, 0, 0.7), /* Sombra negra */
-    0px 0px 15px rgba(255, 255, 255, 0.8), /* Glow blanco */
-    -2px 2px 5px rgba(255, 0, 0, 0.6); /* Glow rojo */
+    0px 6px 15px rgba(0, 0, 0, 0.9), /* Sombra negra más grande para mayor profundidad */
+    0px 0px 20px rgba(104, 0, 0, 0.8), /* Glow blanco más intenso */
+    -3px 3px 10px rgba(0, 0, 0, 0.8); /* Resplandor rojo más amplio */
+  position: relative;
 }
 
-.hero-section p {
+.hero-subtitle {
+  font-size: 1.8rem; /* También aumenta un poco el subtítulo */
+  margin-bottom: 20px;
+}
+
+.hero-subtitle {
+  font-family: 'Libre Baskerville', serif;
   font-size: 1.5rem;
-  text-shadow: 0px 2px 8px rgba(0, 0, 0, 0.7);
+  margin: 20px 0;
+  text-shadow: 
+    0px 6px 15px rgba(0, 0, 0, 0.9), /* Sombra negra más grande para mayor profundidad */
+    0px 0px 20px rgba(104, 0, 0, 0.8), /* Glow blanco más intenso */
+    -3px 3px 10px rgba(0, 0, 0, 0.8); /* Resplandor rojo más amplio */
+  color: #ddd;
 }
 
-.hero-section button {
+.hero-buttons {
+  display: flex;
+  flex-direction: column; /* Asegura que los botones estén en columna */
+  gap: 20px; /* Espaciado entre botones */
+  margin-top: 20px;
+  align-items: center; /* Centra los botones horizontalmente */
+}
+
+.hero-buttons .hero-btn {
+  padding: 12px 25px;
+  font-size: 1.2rem;
+  color: white;
+  background-color: crimson;
+  border: none;
   border-radius: 5px;
-  transition: transform 0.3s ease, background-color 0.3s ease;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s, background-color 0.3s, box-shadow 0.3s;
+  cursor: pointer;
 }
 
-.hero-section button:hover {
+.hero-buttons .hero-btn:hover {
+  background-color: darkred;
   transform: scale(1.05);
+  box-shadow: 0 6px 12px rgba(255, 0, 0, 0.5);
 }
 
-.hero-section button.btn-primary {
-  background-color: #007bff;
-  box-shadow: 0px 5px 15px rgba(0, 123, 255, 0.5);
+.hero-buttons .explore-button {
+  background-image: linear-gradient(to right, crimson, #a30000);
 }
 
-.hero-section button.btn-secondary {
-  background-color: #6c757d;
-  box-shadow: 0px 5px 15px rgba(108, 117, 125, 0.5);
+.hero-buttons .submit-button {
+  background-color: #333;
+}
+
+.hero-buttons .submit-button:hover {
+  background-color: #555;
+}
+
+
+/* Ajustes específicos para dispositivos móviles */
+@media (max-width: 768px) {
+  .hero-title {
+    font-size: 3rem; /* Reduce el tamaño para móviles */
+    letter-spacing: 1.5px;
+  }
+
+  .hero-subtitle {
+    font-size: 1rem; /* Reduce el subtítulo */
+  }
+
+  .hero-buttons .hero-btn {
+    font-size: 0.9rem;
+    padding: 8px 15px; /* Botones más compactos */
+  }
 }

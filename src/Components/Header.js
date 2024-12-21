@@ -4,7 +4,7 @@ import logo from '../img/logo.png';
 
 const Header = () => {
   return (
-    <header className="sticky-top bg-dark py-2 shadow">
+    <header className="sticky-top bg-black py-3 shadow-lg">
       <div className="container d-flex justify-content-between align-items-center">
         {/* Logo */}
         <div className="d-flex align-items-center">
@@ -12,14 +12,19 @@ const Header = () => {
             src={logo}
             alt="Logo"
             className="me-2"
-            style={{ height: '50px' }}
+            style={{ height: '50px', filter: 'brightness(0.8)' }}
           />
         </div>
 
         {/* Texto centrado */}
         <div className="position-absolute top-50 start-50 translate-middle">
-          <span className="text-white fs-4 fw-bold">Tell Me Your Nightmare</span>
+          <span className="text-white fs-4 fw-bold" style={{ textShadow: '0 0 10px crimson, 0 0 5px darkred' }}>
+            Tell Me Your Nightmare
+          </span>
         </div>
+
+        {/* Espacio vacío para balancear diseño */}
+        <div style={{ width: '50px' }}></div>
 
         {/* Navegación */}
         {/* <nav className="d-none d-md-block">
