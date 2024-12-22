@@ -46,3 +46,19 @@
 .btn-danger:hover {
   background-color: darkred;
 }
+
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  overflow: hidden;
+}
+
+.not-found-container {
+  position: fixed; /* Asegura que ocupa toda la pantalla */
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+}
