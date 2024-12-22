@@ -1,14 +1,16 @@
 /* Contenedor principal del filtro */
 .filter-container {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr); /* Configura 3 columnas en móviles */
-    gap: 15px; /* Espaciado entre elementos */
-    padding: 12px;
-    background-color: rgba(50, 50, 50, 0.8); /* Fondo oscuro */
-    border-radius: 8px;
-    transform: scale(1.05);
-    box-shadow: 0 5px 5px 5px rgba(255, 0, 0, 0.5);
-  }
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 columnas */
+  grid-template-rows: auto; /* Las filas se ajustan automáticamente */
+  gap: 15px; /* Espaciado entre las tarjetas */
+  padding: 12px;
+  background-color: rgba(50, 50, 50, 0.8);
+  border-radius: 8px;
+  transform: scale(1.05);
+  box-shadow: 0 5px 5px 5px rgba(255, 0, 0, 0.5);
+  overflow: visible; /* Asegura que todas las filas sean visibles */
+}
   
   /* Opciones del filtro */
   .filter-option {

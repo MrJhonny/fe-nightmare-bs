@@ -5,6 +5,26 @@ import categoriesImages from "../img/categories/categories";
 const CategoriesCarousel = ({ API_BASE_URL }) => {
   const [categories, setCategories] = useState([]);
   const [apiError, setApiError] = useState(null);
+  const [itemsPerGroup, setItemsPerGroup] = useState(5); // Default: 5 items for PC
+
+  useEffect(() => {
+    // Ajustar items por grupo dependiendo del tamaño de la pantalla
+    const updateItemsPerGroup = () => {
+      if (window.innerWidth <= 768) {
+        setItemsPerGroup(2); // Móviles: 3 elementos
+      } else {
+        setItemsPerGroup(5); // Escritorio: 5 elementos
+      }
+    };
+
+    // Detectar cambios en el tamaño de la ventana
+    updateItemsPerGroup();
+    window.addEventListener("resize", updateItemsPerGroup);
+
+    return () => {
+      window.removeEventListener("resize", updateItemsPerGroup);
+    };
+  }, []);
 
   useEffect(() => {
     const fetchCategories = async () => {
@@ -17,7 +37,8 @@ const CategoriesCarousel = ({ API_BASE_URL }) => {
 
         const fetchedCategories = data.categories.map((name, index) => {
           const formattedName = name.toLowerCase().replace(/ /g, "_").trim();
-          const image = categoriesImages[formattedName] || "/path/to/default_image.png";
+          const image =
+            categoriesImages[formattedName] || "/path/to/default_image.png";
 
           return {
             id: index + 1,
@@ -40,10 +61,10 @@ const CategoriesCarousel = ({ API_BASE_URL }) => {
     return <p className="text-danger text-center">{apiError}</p>;
   }
 
-  // Agrupar categorías para el carousel
+  // Agrupar categorías dinámicamente
   const groupedCategories = [];
-  for (let i = 0; i < categories.length; i += 5) {
-    groupedCategories.push(categories.slice(i, i + 5));
+  for (let i = 0; i < categories.length; i += itemsPerGroup) {
+    groupedCategories.push(categories.slice(i, i + itemsPerGroup));
   }
 
   return (
@@ -64,7 +85,10 @@ const CategoriesCarousel = ({ API_BASE_URL }) => {
               >
                 <div className="d-flex justify-content-center">
                   {group.map((category) => (
-                    <div key={category.id} className="category-card">
+                    <div
+                      key={category.id}
+                      className="category-card"
+                    >
                       <img
                         src={category.image}
                         alt={category.name}
@@ -83,7 +107,10 @@ const CategoriesCarousel = ({ API_BASE_URL }) => {
             data-bs-target="#categoriesCarousel"
             data-bs-slide="prev"
           >
-            <span className="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span
+              className="carousel-control-prev-icon"
+              aria-hidden="true"
+            ></span>
             <span className="visually-hidden">Previous</span>
           </button>
           <button
@@ -92,7 +119,10 @@ const CategoriesCarousel = ({ API_BASE_URL }) => {
             data-bs-target="#categoriesCarousel"
             data-bs-slide="next"
           >
-            <span className="carousel-control-next-icon" aria-hidden="true"></span>
+            <span
+              className="carousel-control-next-icon"
+              aria-hidden="true"
+            ></span>
             <span className="visually-hidden">Next</span>
           </button>
         </div>

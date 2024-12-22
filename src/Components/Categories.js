@@ -15,6 +15,7 @@ const Categories = ({ API_BASE_URL }) => {
         }
         const data = await response.json();
 
+        // Mapear categorías desde la API y asociarlas con imágenes
         const fetchedCategories = data.categories.map((name, index) => {
           const formattedName = name.toLowerCase().replace(/ /g, '_').trim();
           const image = categoriesImages[formattedName] || '/path/to/default_image.png';
