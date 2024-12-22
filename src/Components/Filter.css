@@ -6,6 +6,8 @@
     padding: 10px;
     background-color: rgba(50, 50, 50, 0.8); /* Fondo oscuro */
     border-radius: 8px;
+    transform: scale(1.05);
+    box-shadow: 0 5px 5px 5px rgba(255, 0, 0, 0.5);
   }
   
   /* Opciones del filtro */
