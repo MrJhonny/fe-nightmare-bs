@@ -3,12 +3,14 @@ import "./StoriesPage.css";
 import StoryCard from "../Components/StoryCard";
 import Background from "../Components/Background";
 import Filter from "../Components/Filter";
+import StoriesExpanded from "../Components/StoriesExpanded";
 
 const StoriesPage = ({ API_BASE_URL }) => {
   const [stories, setStories] = useState([]);
   const [filteredStories, setFilteredStories] = useState([]);
   const [categories, setCategories] = useState([]);
   const [selectedCategories, setSelectedCategories] = useState([]);
+  const [selectedStory, setSelectedStory] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
@@ -21,10 +23,7 @@ const StoriesPage = ({ API_BASE_URL }) => {
         }
         const data = await response.json();
 
-        // Ordenar las historias por ID en orden descendente
         const sortedStories = data.sort((a, b) => b.id - a.id);
-
-        // Obtener categorías únicas
         const uniqueCategories = [
           ...new Set(sortedStories.map((story) => story.category)),
         ];
@@ -55,6 +54,14 @@ const StoriesPage = ({ API_BASE_URL }) => {
     }
   }, [selectedCategories, stories]);
 
+  const handleStoryClick = (story) => {
+    setSelectedStory(story);
+  };
+
+  const handleCloseExpanded = () => {
+    setSelectedStory(null);
+  };
+
   if (loading) {
     return <p className="loading-message">Loading stories...</p>;
   }
@@ -68,20 +75,24 @@ const StoriesPage = ({ API_BASE_URL }) => {
       <Background />
       <div className="container py-4">
         <h1 className="text-center text-light page-title">All Stories</h1>
-
-        {/* Filtro */}
         <Filter
           categories={categories}
           selectedCategories={selectedCategories}
           setSelectedCategories={setSelectedCategories}
         />
-
         <div className="stories-grid">
           {filteredStories.map((story) => (
-            <StoryCard key={story.id} story={story} />
+            <div key={story.id} onClick={() => handleStoryClick(story)}>
+              <StoryCard story={story} />
+            </div>
           ))}
         </div>
       </div>
+
+      {/* Ventana flotante */}
+      {selectedStory && (
+        <StoriesExpanded story={selectedStory} onClose={handleCloseExpanded} />
+      )}
     </section>
   );
 };
