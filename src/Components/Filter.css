@@ -1,0 +1,62 @@
+/* Contenedor principal del filtro */
+.filter-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Configura 3 columnas en móviles */
+    gap: 15px; /* Espaciado entre elementos */
+    padding: 10px;
+    background-color: rgba(50, 50, 50, 0.8); /* Fondo oscuro */
+    border-radius: 8px;
+  }
+  
+  /* Opciones del filtro */
+  .filter-option {
+    text-align: center;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+    border-radius: 10px;
+    background-color: rgba(60, 60, 60, 0.9); /* Fondo de cada opción */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+  
+  .filter-option:hover {
+    transform: scale(1.1);
+    box-shadow: 0 4px 12px rgba(255, 0, 0, 0.4);
+  }
+  
+  /* Imagen dentro del filtro */
+  .filter-image {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 10%;
+    border: 2px solid transparent;
+    margin-bottom: 5px;
+  }
+  
+  .filter-option.selected .filter-image {
+    border-color: crimson;
+    box-shadow: 0 0 10px crimson;
+  }
+  
+  /* Etiqueta del filtro */
+  .filter-label {
+    font-size: 0.8rem;
+    color: white;
+    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.7);
+  }
+  
+  /* Ajustes responsivos */
+  @media (max-width: 768px) {
+    .filter-container {
+      grid-template-columns: repeat(3, 1fr); /* Configura 3 columnas en móviles */
+    }
+  
+    .filter-image {
+      width: 70px;
+      height: 70px;
+    }
+  }
