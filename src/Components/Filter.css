@@ -3,7 +3,7 @@
     display: grid;
     grid-template-columns: repeat(3, 1fr); /* Configura 3 columnas en móviles */
     gap: 15px; /* Espaciado entre elementos */
-    padding: 10px;
+    padding: 12px;
     background-color: rgba(50, 50, 50, 0.8); /* Fondo oscuro */
     border-radius: 8px;
     transform: scale(1.05);
