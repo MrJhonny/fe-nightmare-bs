@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import './Background.css';
-import hero1 from "../img/hero/hero1.jpg";
-import hero2 from "../img/hero/hero2.jpg";
-import hero3 from "../img/hero/hero3.jpg";
-import hero4 from "../img/hero/hero4.jpg";
-import hero5 from "../img/hero/hero5.jpg";
-import hero6 from "../img/hero/hero6.jpg";
-import hero7 from "../img/hero/hero7.jpg";
-import hero8 from "../img/hero/hero8.jpg";
+import hero1 from "../img/hero/hero1.webp";
+import hero2 from "../img/hero/hero2.webp";
+import hero3 from "../img/hero/hero3.webp";
+import hero4 from "../img/hero/hero4.webp";
+import hero5 from "../img/hero/hero5.webp";
+import hero6 from "../img/hero/hero6.webp";
+import hero7 from "../img/hero/hero7.webp";
+import hero8 from "../img/hero/hero8.webp";
 
 const images = [hero1, hero2, hero3, hero4, hero5, hero6, hero7, hero8];
 
