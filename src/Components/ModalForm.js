@@ -314,7 +314,7 @@ const ModalForm = ({ isModalOpen, setIsModalOpen }) => {
                                     <label style={{ margin: 0 }}>
                                         I have read and accept the{" "}
                                         <a
-                                            href="/terms"
+                                            href="https://s3.us-east-1.amazonaws.com/tellmeyournightmare.com/Terms_and_Conditions_of_Use.pdf"
                                             target="_blank"
                                             rel="noopener noreferrer"
                                             style={{
