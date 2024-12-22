@@ -85,7 +85,7 @@
 /* Contenedor del botón "View More" */
 .view-more-container {
   position: absolute; /* Permite posicionar el botón sobre las historias con blur */
-  bottom: -40px; /* Asegura que el botón quede centrado */
+  bottom: 110px; /* Ajusta la distancia desde la parte inferior */
   left: 50%;
   transform: translateX(-50%);
   display: flex;
@@ -139,6 +139,8 @@
 /* Ajustes adicionales para compatibilidad */
 @media (max-width: 768px) {
   .view-more-container {
-    bottom: -20px; /* Ajusta el botón más cerca del contenido en pantallas pequeñas */
+    bottom: 110px; /* Mantén la distancia en teléfonos */
+    left: 50%;
+    transform: translateX(-50%);
   }
 }

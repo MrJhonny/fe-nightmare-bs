@@ -100,16 +100,32 @@
 /* Ajustes específicos para dispositivos móviles */
 @media (max-width: 768px) {
   .hero-title {
-    font-size: 3rem; /* Reduce el tamaño para móviles */
-    letter-spacing: 1.5px;
+    font-size: 3rem; /* Tamaño del texto en móvil */
+    letter-spacing: 1.5px; /* Espaciado */
+    text-align: center; /* Centrado horizontalmente */
+    margin: 0 auto; /* Asegura que no tenga márgenes */
+    display: flex; /* Garantiza la alineación en el contenedor */
+    justify-content: center; /* Centrado horizontal en flexbox */
+    align-items: center; /* Centrado vertical en flexbox */
   }
 
   .hero-subtitle {
-    font-size: 1rem; /* Reduce el subtítulo */
+    font-size: 1.2rem; /* Tamaño ajustado para subtítulos */
+    margin: 10px 0; /* Reduce el margen */
+    text-align: center; /* Centra el texto */
   }
-
-  .hero-buttons .hero-btn {
-    font-size: 0.9rem;
-    padding: 8px 15px; /* Botones más compactos */
+  
+  .position-absolute.top-50.start-50.translate-middle {
+    position: absolute; /* Asegura que siga el flujo visual */
+    top: 50%; /* Centrado vertical */
+    left: 50%; /* Centrado horizontal */
+    transform: translate(-50%, -50%); /* Precisa el centro */
+    width: 100%; /* Asegura que no se salga del contenedor */
+    text-align: center; /* Centra el contenido dentro del contenedor */
+  }
+}
+@media (max-width: 768px) {
+  .hero-content {
+    transform: translateY(-5%); /* Ajusta para móviles */
   }
 }

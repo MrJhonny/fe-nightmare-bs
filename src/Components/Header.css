@@ -45,3 +45,28 @@
 header {
   z-index: 1030; /* Asegura que esté encima de otros elementos */
 }
+
+/* Media Query para dispositivos móviles */
+@media (max-width: 768px) {
+  .custom-title {
+    font-size: 1.8rem; /* Mantener el tamaño actual */
+    text-shadow: 0px 1px 2px crimson; /* Ajustar la sombra */
+    text-align: center; /* Centrar el título */
+    position: absolute; /* Asegurar que se pueda posicionar correctamente */
+    top: 50%; /* Centrar verticalmente dentro del header */
+    left: 50%; /* Centrar horizontalmente */
+    transform: translate(-50%, -50%); /* Ajustar el centrado exacto */
+  }
+
+  .custom-logo {
+    height: 40px; /* Reducir el tamaño del logo */
+  }
+
+  .custom-nav .nav {
+    display: none; /* Ocultar la navegación en pantallas pequeñas */
+  }
+
+  .dropdown {
+    display: block; /* Asegurarse de que el menú desplegable sea visible */
+  }
+}

@@ -7,7 +7,7 @@ import GoogleTag from "./Components/GoogleTag";
 
 function App() {
   const API_BASE_URL = process.env.REACT_APP_API_URL || "https://api.tellmeyournightmare.com/api/v1/";
-  // const API_BASE_URL = process.env.REACT_APP_API_URL || "http://localhost:3000/api/v1/";
+  // const API_BASE_URL = process.env.REACT_APP_API_URL || "http://192.168.1.141:3000/api/v1/";
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   return (
