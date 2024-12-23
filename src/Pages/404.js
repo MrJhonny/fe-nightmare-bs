@@ -23,7 +23,8 @@ const NotFoundPage = () => {
         loop
         muted
       >
-        <source src="https://s3.us-east-1.amazonaws.com/tellmeyournightmare.com/media/background.mp4" type="video/mp4" />
+        <source src="/media/background.mp4" type="video/mp4" />
+        <source src="/media/background.webm" type="video/webm" />
         Your browser does not support the video tag.
       </video>
       <div className="not-found-content text-center">
