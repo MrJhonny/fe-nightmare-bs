@@ -1,13 +1,13 @@
-import apocalyptic from './apocalyptic.png';
-import cosmic_horror from './cosmic_horror.png';
-import creatures from './creatures.png';
-import dark_tales from './dark_tales.png';
-import gore from './gore.png';
-import haunted_house from './haunted_house.png';
-import psychological from './psychological.png';
-import slasher from './slasher.png';
-import supernatural from './supernatural.png';
-import technological_horror from './technological_horror.png';
+import apocalyptic from './apocalyptic.webp';
+import cosmic_horror from './cosmic_horror.webp';
+import creatures from './creatures.webp';
+import dark_tales from './dark_tales.webp';
+import gore from './gore.webp';
+import haunted_house from './haunted_house.webp';
+import psychological from './psychological.webp';
+import slasher from './slasher.webp';
+import supernatural from './supernatural.webp';
+import technological_horror from './technological_horror.webp';
 
 const categories = {
   apocalyptic,
