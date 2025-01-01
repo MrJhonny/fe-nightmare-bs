@@ -3,22 +3,41 @@
 
 <head>
   <meta charset="utf-8" />
-  <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="theme-color" content="#000000" />
-  <meta name="description" content="Web site created using create-react-app" />
-  <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
+  <meta name="description" content="Discover terrifying stories on Tell Me Your Nightmare. Share your nightmares and explore categories like cosmic horror, apocalyptic, and more." />
+  
+  <!-- Open Graph (OG) Meta Tags for social media -->
+  <meta property="og:title" content="Tell Me Your Nightmare" />
+  <meta property="og:description" content="Discover terrifying stories on Tell Me Your Nightmare. Share your nightmares and explore categories like cosmic horror, apocalyptic, and more." />
+  <meta property="og:image" content="%PUBLIC_URL%/og-image.png" />
+  <meta property="og:url" content="https://tellmeyournightmare.com" />
+  <meta property="og:type" content="website" />
+
+  <!-- Twitter Cards -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Tell Me Your Nightmare" />
+  <meta name="twitter:description" content="Discover terrifying stories on Tell Me Your Nightmare. Share your nightmares and explore categories like cosmic horror, apocalyptic, and more." />
+  <meta name="twitter:image" content="%PUBLIC_URL%/og-image.png" />
+
+  <!-- Canonical URL -->
+  <link rel="canonical" href="https://tellmeyournightmare.com" />
+
+  <!-- Favicon -->
+  <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
+  <link rel="apple-touch-icon" href="%PUBLIC_URL%/apple-touch-icon.png" />
+
+  <!-- Manifest for PWA -->
   <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
 
   <title>Tell Me Your Nightmare</title>
 
-  <!-- Google tag (gtag.js) -->
+  <!-- Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=AW-11505735258"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
+    function gtag() { dataLayer.push(arguments); }
     gtag('js', new Date());
-
     gtag('config', 'AW-11505735258');
   </script>
 </head>
@@ -27,6 +46,7 @@
   <noscript>You need to enable JavaScript to run this app.</noscript>
   <div id="root"></div>
 
+  <!-- Bootstrap JS -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 
